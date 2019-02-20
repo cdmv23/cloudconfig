@@ -1,0 +1,39 @@
+﻿
+
+spring:
+  application:
+    name: microservicecloud-provider-dept
+  datasource:
+    url: jdbc:mysql://localhost:3306/cloudDB01
+    username: root
+    password: 123456
+
+server:
+  port: 8001
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+
+
+eureka:
+  instance:
+    instance-id: microservicecloud-provider-dept-8001-hystrix
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
+
+info:
+  app:
+    version: 1.0
+    name: microservicecloud-consumer-dept-80
