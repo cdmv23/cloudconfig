@@ -1,0 +1,85 @@
+﻿
+
+spring:
+  profiles:
+    active: dev
+---
+spring:
+  profiles: dev
+  application:
+    name: microservicecloud-config-provider
+  datasource:
+    url: jdbc:mysql://localhost:3306/cloudDB01
+    username: root
+    password: 123456
+
+server:
+  port: 8001
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true #开启驼峰
+
+
+eureka:
+  instance:
+    instance-id: microservicecloud-config-provider-8001
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
+
+info:
+  app:
+    version: 1.0
+    name: microservicecloud-dev
+
+---
+spring:
+  profiles: test
+  application:
+    name: microservicecloud-config-provider
+  datasource:
+    url: jdbc:mysql://localhost:3306/cloudDB01
+    username: root
+    password: 123456
+
+server:
+  port: 8002
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true #开启驼峰
+
+
+eureka:
+  instance:
+    instance-id: microservicecloud-config-provider-8002
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://eureka7002.com:7002/eureka/
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
+
+info:
+  app:
+    version: 1.0
+    name: microservicecloud-test
+

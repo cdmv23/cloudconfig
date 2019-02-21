@@ -1,0 +1,18 @@
+﻿spring:
+  profiles:
+    active: dev
+---
+spring:
+  profiles: dev
+  application:
+    name: microservicecloud-config-consumer
+server:
+  port: 80
+
+eureka:
+  instance:
+    instance-id: microservicecloud-config-consumer-80
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
